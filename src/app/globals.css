@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+/*
+ * Sistema visual — sobrio, tipográfico, inspirado en el software financiero de Apple.
+ * El color sólo comunica significado: acento (acción), positivo, negativo, aviso.
+ */
+:root {
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --surface-2: #f9f9fb;
+  --surface-3: #efeff4;
+  --fill: rgba(118, 118, 128, 0.12);
+  --fill-2: rgba(118, 118, 128, 0.08);
+  --text: #1d1d1f;
+  --text-2: #6e6e73;
+  --text-3: #8e8e93;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.14);
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
+  --accent-soft: rgba(0, 113, 227, 0.1);
+  --positive: #1d8a3a;
+  --positive-soft: rgba(29, 138, 58, 0.1);
+  --negative: #d70015;
+  --negative-soft: rgba(215, 0, 21, 0.08);
+  --warning: #b25000;
+  --warning-soft: rgba(255, 149, 0, 0.14);
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --chart-grid: rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
+  --glass: rgba(255, 255, 255, 0.72);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --surface: #1c1c1e;
+  --surface-2: #232325;
+  --surface-3: #2c2c2e;
+  --fill: rgba(118, 118, 128, 0.24);
+  --fill-2: rgba(118, 118, 128, 0.16);
+  --text: #f5f5f7;
+  --text-2: #a1a1a6;
+  --text-3: #6e6e73;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --accent: #0a84ff;
+  --accent-hover: #409cff;
+  --accent-soft: rgba(10, 132, 255, 0.18);
+  --positive: #30d158;
+  --positive-soft: rgba(48, 209, 88, 0.14);
+  --negative: #ff453a;
+  --negative-soft: rgba(255, 69, 58, 0.14);
+  --warning: #ff9f0a;
+  --warning-soft: rgba(255, 159, 10, 0.16);
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --chart-grid: rgba(255, 255, 255, 0.07);
+  --shadow-sm: 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --shadow-md: 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --glass: rgba(28, 28, 30, 0.72);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #000000;
+    --surface: #1c1c1e;
+    --surface-2: #232325;
+    --surface-3: #2c2c2e;
+    --fill: rgba(118, 118, 128, 0.24);
+    --fill-2: rgba(118, 118, 128, 0.16);
+    --text: #f5f5f7;
+    --text-2: #a1a1a6;
+    --text-3: #6e6e73;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.16);
+    --accent: #0a84ff;
+    --accent-hover: #409cff;
+    --accent-soft: rgba(10, 132, 255, 0.18);
+    --positive: #30d158;
+    --positive-soft: rgba(48, 209, 88, 0.14);
+    --negative: #ff453a;
+    --negative-soft: rgba(255, 69, 58, 0.14);
+    --warning: #ff9f0a;
+    --warning-soft: rgba(255, 159, 10, 0.16);
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --chart-grid: rgba(255, 255, 255, 0.07);
+    --shadow-sm: 0 0 0 1px rgba(255, 255, 255, 0.04);
+    --shadow-md: 0 0 0 1px rgba(255, 255, 255, 0.05);
+    --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    --glass: rgba(28, 28, 30, 0.72);
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-fill: var(--fill);
+  --color-fill-2: var(--fill-2);
+  --color-text: var(--text);
+  --color-text-2: var(--text-2);
+  --color-text-3: var(--text-3);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-positive: var(--positive);
+  --color-positive-soft: var(--positive-soft);
+  --color-negative: var(--negative);
+  --color-negative-soft: var(--negative-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-inter), "Segoe UI", system-ui, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", var(--font-inter), "Segoe UI", system-ui, sans-serif;
+  --shadow-card: var(--shadow-sm);
+  --shadow-raised: var(--shadow-md);
+  --shadow-float: var(--shadow-lg);
+  --radius-card: 18px;
+  --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+  letter-spacing: -0.008em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.display {
+  font-family: var(--font-display);
+  letter-spacing: -0.022em;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: pointer;
+}
+:root[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes sheet-up {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-in { animation: fade-up 420ms var(--ease-apple) both; }
+.animate-fade { animation: fade-in 240ms var(--ease-apple) both; }
+.animate-sheet { animation: sheet-up 380ms var(--ease-spring) both; }
+.stagger > * { animation: fade-up 480ms var(--ease-apple) both; }
+.stagger > *:nth-child(2) { animation-delay: 40ms; }
+.stagger > *:nth-child(3) { animation-delay: 80ms; }
+.stagger > *:nth-child(4) { animation-delay: 120ms; }
+.stagger > *:nth-child(5) { animation-delay: 160ms; }
+.stagger > *:nth-child(6) { animation-delay: 200ms; }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--fill-2) 0px, var(--fill) 120px, var(--fill-2) 240px);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s linear infinite;
+  border-radius: 8px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(6px);
+  animation: fade-in 200ms ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+.scrollbar-none { scrollbar-width: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }

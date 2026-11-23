@@ -1,0 +1,17 @@
+# Motor local de reconocimiento (Python 3.12, CPU). Sin servicios de IA externos.
+paddlepaddle==3.2.2          # 3.3.x falla con oneDNN en Windows CPU (ConvertPirAttribute2RuntimeAttribute)
+paddleocr[doc-parser]==3.7.0 # PP-OCR (detección + reconocimiento) + PP-StructureV3 (tablas)
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+python-multipart>=0.0.9
+pypdfium2>=4.30
+pillow>=10
+numpy>=1.26
+pytest>=8
+
+# Versiones con binarios que Windows Smart App Control no bloquea (las más recientes sí lo están):
+scikit-learn==1.6.1
+pycryptodome==3.23.0
+charset-normalizer==3.4.2
+chardet==5.2.0
+crc32c==2.7.1
